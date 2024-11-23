@@ -1,0 +1,68 @@
+/* Réinitialisation des styles de base */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Conteneur principal avec gradient animé */
+.container {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+}
+
+/* Animation pour le gradient */
+@keyframes color {
+    0% {
+        background-position: 0 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0 50%;
+    }
+}
+
+/* Corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* En-tête */
+header {
+    background-color: #4CAF50;
+    color: #ffffff; /* Blanc pour le texte */
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style pour le bouton "Commencer" */
+#start-button {
+    background-color: #007BFF; /* Couleur bleue */
+    color: #ffffff; /* Texte en blanc */
+    font-size: 18px; /* Taille de police */
+    padding: 12px 20px; /* Espace autour du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 8px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointer lors du survol */
+    text-align: center; /* Centrer le texte */
+    display: inline-block; /* Le bouton s'ajuste à la taille du texte */
+    text-decoration: none; /* Enlever la décoration du lien */
+    margin-top: 20px; /* Espacement au-dessus du bouton */
+}
+
+#start-button:hover {
+    background-color: #0056b3; /* Couleur au survol */
+}

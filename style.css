@@ -1,0 +1,353 @@
+/* Corps de la page */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* En-tête */
+header {
+    background-color: #4CAF50;
+    color: rgb(255, 255, 255);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Menu de bienvenue */
+#welcome-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#welcome-message {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#user-name {
+    color: #FFD700; /* Jaune pour attirer l'attention */
+}
+
+#logout-button {
+    background-color: #FF5733;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logout-button:hover {
+    background-color: #C0392B;
+}
+
+/* Panier et Boutons */
+#cart {
+    background-color: #3e8e41;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cart:hover {
+    background-color: #2e7031;
+    transform: translateY(-3px);
+}
+
+/* Styles pour les boutons */
+.add-to-cart, .view-more, .rent-now {
+    width: 100%;
+    padding: 12px 25px;
+    font-size: 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    text-align: center;
+}
+
+.add-to-cart {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.add-to-cart:hover {
+    background-color: #3e8e41;
+    transform: translateY(-3px);
+}
+
+.view-more {
+    background-color: #2196F3;
+    color: white;
+}
+
+.view-more:hover {
+    background-color: #1976D2;
+    transform: translateY(-3px);
+}
+
+.rent-now {
+    background-color: #FFC107;
+    color: white;
+}
+
+.rent-now:hover {
+    background-color: #FFB300;
+    transform: translateY(-3px);
+}
+
+/* Liste des produits */
+#product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Style des produits */
+.product {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background: white;
+    width: 220px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+
+.product p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: scale(1);
+}
+
+.modal img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.modal h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.modal p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.modal button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.modal button:hover {
+    background-color: #555;
+}
+
+/* Thème sombre */
+.dark-theme {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.dark-theme header {
+    background-color: #222;
+}
+
+.dark-theme button {
+    background-color: #555;
+    color: white;
+}
+
+.dark-theme button:hover {
+    background-color: #444;
+}
+
+/* Image RenovProIcon */
+.RenovProIcon {
+    width: 100px; /* Ajuste la taille de l'image selon tes besoins */
+    height: auto; /* Maintient les proportions de l'image */
+    display: block; /* Enlève l'espace sous l'image */
+    box-shadow: none; /* Enlève l'ombre de l'image */
+}
+
+/* Style global de la section panier */
+#cart-items {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.cart-items li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+.cart-items li button {
+    padding: 5px 10px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-items li button:hover {
+    background-color: #c0392b;
+}
+
+/* Style des champs de formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.form-input:focus {
+    outline-color: #3498db;
+}
+
+/* Style du bouton "Louez Maintenant" */
+.btn-checkout {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.btn-checkout:hover {
+    background-color: #2ecc71;
+}
+
+/* Mise en page */
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+div#cart-details {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    .form-input {
+        font-size: 14px;
+    }
+
+    .btn-checkout {
+        font-size: 14px;
+    }
+}

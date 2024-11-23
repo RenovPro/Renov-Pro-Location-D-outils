@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Échafaudage",
+        "price": 15.00,
+        "image": "img/chafaudage.jpg",
+        "description": "Un échafaudage robuste idéal pour les travaux domestiques ou professionnels."
+    },
+    {
+        "id": 2,
+        "name": "Échafaudage 12 pi",
+        "price": 25.00,
+        "image": "img/echafaudage12pi.jpg",
+        "description": "Échafaudage de 12 pieds pour vos projets en hauteur."
+    },
+    {
+        "id": 3,
+        "name": "Échafaudage 18 pi",
+        "price": 75.00,
+        "image": "img/echafaudage18pi.jpg",
+        "description": "Un échafaudage professionnel de 18 pieds pour vos travaux exigeants."
+    },
+    {
+        "id": 4,
+        "name": "Sableuse à joint",
+        "price": 15.00,
+        "image": "img/sableuseajoint.jpg",
+        "description": "Une sableuse légère et efficace pour des finitions parfaites."
+    },
+    {
+        "id": 5,
+        "name": "Sableuse à plancher",
+        "price": 55.00,
+        "image": "img/sableuseaplancher.jpg",
+        "description": "Une sableuse puissante pour restaurer vos planchers en bois."
+    }
+]
