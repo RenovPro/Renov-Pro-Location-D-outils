@@ -145,7 +145,7 @@ function handleCheckout() {
     };
 
     // Envoyer l'email via EmailJS
-    emailjs.send('service_jjvdkyp', 'template_8jk1wvs', formData, 'VHUGGkbAZm2m4aB5T') // Remplace les valeurs par tes propres informations
+    emailjs.send('service_xmw5z5t', 'template_8jk1wvs', formData, 'VHUGGkbAZm2m4aB5T') // Remplace les valeurs par tes propres informations
         .then(function(response) {
             console.log('Succès:', response);
             alert("Votre commande a été envoyée avec succès !");
