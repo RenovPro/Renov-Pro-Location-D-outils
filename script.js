@@ -34,14 +34,14 @@ const products = [
         image: "img/echafaudage18pi.jpg",
     },
     {
-        id: 3,
+        id: 4,
         name: "Sableuse à joint",
         description: "Sableuse à joint à louer pour 25$ le 1er jour et 15$ par jour additionnel.",
         price: 15.00,
         image: "img/sableuseajoint.jpg",
     },
     {
-        id: 3,
+        id:5,
         name: "Sableuse à plancher",
         description: "Sableuse à plancher à louer pour 50$ le 1er jour et 40$ par jour additionnel.",
         price: 40.00,
