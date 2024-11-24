@@ -10,26 +10,26 @@ const emailInput = document.getElementById('email');
 const phoneInput = document.getElementById('phone');
 const checkoutButton = document.getElementById('checkout-button');
 
-// Exemple de liste de produits (vous pouvez remplacer par des données dynamiques si besoin)
+// Exemple de liste de produits (avec IDs uniques)
 const products = [
     {
         id: 1,
-        name: "Échaffaudage 12pi",
-        description: "Facilitons nous les rénovations avec cet echafaudage de 12 pi à Louer pour 50$CAD le 1er jour et 25$ par jour additionnel. Possibilité de livraison.",
+        name: "Échafaudage 12pi",
+        description: "Facilitons-nous les rénovations avec cet échafaudage de 12 pi à louer pour 50$ CAD le 1er jour et 25$ par jour additionnel. Possibilité de livraison.",
         price: 10.00,
         image: "img/echafaudage12pi.jpg",
     },
     {
         id: 2,
         name: "Échafaudage",
-        description: "Facilitons nous les rénovations avec cet echafaudage. Très pratique et facile à assembler. 25$cad le premier jour et 15$par jour additionnel. Possibilité de livraison .",
+        description: "Facilitons-nous les rénovations avec cet échafaudage. Très pratique et facile à assembler. 25$ CAD le premier jour et 15$ par jour additionnel. Possibilité de livraison.",
         price: 15.00,
         image: "img/echafaudage.jpg",
     },
     {
         id: 3,
         name: "Échafaudage 18 pi",
-        description: "Facilitons nous les rénovations avec cet echafaudage. Très pratique et facile à assembler. 75$cad le premier jour et 50$par jour additionnel. Possibilité de livraison .",
+        description: "Facilitons-nous les rénovations avec cet échafaudage. Très pratique et facile à assembler. 75$ CAD le premier jour et 50$ par jour additionnel. Possibilité de livraison.",
         price: 20.00,
         image: "img/echafaudage18pi.jpg",
     },
@@ -41,13 +41,12 @@ const products = [
         image: "img/sableuseajoint.jpg",
     },
     {
-        id:5,
+        id: 5,
         name: "Sableuse à plancher",
         description: "Sableuse à plancher à louer pour 50$ le 1er jour et 40$ par jour additionnel.",
         price: 40.00,
         image: "img/sableuseaplancher.jpg",
     },
-    // Autres produits ici...
 ];
 
 // Fonction pour afficher les produits
@@ -125,6 +124,14 @@ function handleCheckout() {
         alert("Veuillez remplir tous les champs requis.");
         return;
     }
+    if (!rentalDaysInput.value || rentalDaysInput.value <= 0) {
+        alert("Veuillez indiquer une durée de location valide.");
+        return;
+    }
+    if (!paymentMethodSelect.value) {
+        alert("Veuillez choisir une méthode de paiement.");
+        return;
+    }
 
     const rentalDetails = {
         items: cart,
@@ -138,24 +145,24 @@ function handleCheckout() {
 
     // Créer un objet avec les informations de la commande
     const formData = {
-        email: rentalDetails.email,
-        phone: rentalDetails.phone,
-        days: rentalDetails.rentalDays,
-        payment_method: rentalDetails.paymentMethod
+        user_email: rentalDetails.email,
+        user_phone: rentalDetails.phone,
+        rental_days: rentalDetails.rentalDays,
+        payment_method: rentalDetails.paymentMethod,
+        items: rentalDetails.items.map(item => item.name).join(', ')
     };
 
     // Envoyer l'email via EmailJS
-    emailjs.send('service_5pnfnlj', 'template_i82dfx8', formData, 'ueBypAr6n5Ptu1rE0') // Remplace les valeurs par tes propres informations
+    emailjs.send('service_5pnfnlj', 'template_i82dfx8', formData, 'ueBypAr6n5Ptu1rE0')
         .then(function(response) {
             console.log('Succès:', response);
             alert("Votre commande a été envoyée avec succès !");
-        }, function(error) {
+            resetCart(); // Réinitialiser le panier uniquement après succès
+        })
+        .catch(function(error) {
             console.log('Erreur:', error);
             alert("Une erreur est survenue. Veuillez réessayer.");
         });
-
-    alert("Votre location a été confirmée !");
-    resetCart();
 }
 
 // Fonction pour réinitialiser le panier après la location
