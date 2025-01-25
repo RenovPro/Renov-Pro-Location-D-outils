@@ -181,3 +181,26 @@ checkoutButton.addEventListener('click', handleCheckout);
 
 // Initialiser la page
 displayProducts();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cartButton = document.getElementById("cart-button");
+    const modalOverlay = document.getElementById("modal-overlay");
+    const closeModal = document.getElementById("close-modal");
+
+    // Affiche la modal quand on clique sur le bouton "Panier"
+    cartButton.addEventListener("click", () => {
+        modalOverlay.style.display = "flex";
+    });
+
+    // Ferme la modal quand on clique sur "Fermer"
+    closeModal.addEventListener("click", () => {
+        modalOverlay.style.display = "none";
+    });
+
+    // Ferme la modal si on clique en dehors de celle-ci
+    modalOverlay.addEventListener("click", (e) => {
+        if (e.target === modalOverlay) {
+            modalOverlay.style.display = "none";
+        }
+    });
+});
