@@ -16,7 +16,7 @@ const products = [
         id: 1,
         name: "Échafaudage 12pi",
         description: "Facilitons-nous les rénovations avec cet échafaudage de 12 pi à louer pour 50$ CAD le 1er jour et 25$ par jour additionnel. Possibilité de livraison.",
-        price: 10.00,
+        price: 30.00,
         image: "img/echafaudage12pi.jpg",
     },
     {
@@ -30,14 +30,14 @@ const products = [
         id: 3,
         name: "Échafaudage 18 pi",
         description: "Facilitons-nous les rénovations avec cet échafaudage. Très pratique et facile à assembler. 75$ CAD le premier jour et 50$ par jour additionnel. Possibilité de livraison.",
-        price: 20.00,
+        price: 75.00,
         image: "img/echafaudage18pi.jpg",
     },
     {
         id: 4,
         name: "Sableuse à joint",
         description: "Sableuse à joint à louer pour 25$ le 1er jour et 15$ par jour additionnel.",
-        price: 15.00,
+        price: 40.00,
         image: "img/sableuseajoint.jpg",
     },
     {
