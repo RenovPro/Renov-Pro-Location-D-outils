@@ -16,35 +16,35 @@ const products = [
         id: 1,
         name: "Échafaudage 12pi",
         description: "Facilitons-nous les rénovations avec cet échafaudage de 12 pi à louer pour 50$ CAD le 1er jour et 25$ par jour additionnel. Possibilité de livraison.",
-        price: 50.00,
+        price: 10.00,
         image: "img/echafaudage12pi.jpg",
     },
     {
         id: 2,
         name: "Échafaudage",
         description: "Facilitons-nous les rénovations avec cet échafaudage. Très pratique et facile à assembler. 25$ CAD le premier jour et 15$ par jour additionnel. Possibilité de livraison.",
-        price: 25.00,
+        price: 15.00,
         image: "img/echafaudage.jpg",
     },
     {
         id: 3,
         name: "Échafaudage 18 pi",
         description: "Facilitons-nous les rénovations avec cet échafaudage. Très pratique et facile à assembler. 75$ CAD le premier jour et 50$ par jour additionnel. Possibilité de livraison.",
-        price: 75.00,
+        price: 20.00,
         image: "img/echafaudage18pi.jpg",
     },
     {
         id: 4,
         name: "Sableuse à joint",
         description: "Sableuse à joint à louer pour 25$ le 1er jour et 15$ par jour additionnel.",
-        price: 25.00,
+        price: 15.00,
         image: "img/sableuseajoint.jpg",
     },
     {
         id: 5,
         name: "Sableuse à plancher",
         description: "Sableuse à plancher à louer pour 50$ le 1er jour et 40$ par jour additionnel.",
-        price: 50.00,
+        price: 40.00,
         image: "img/sableuseaplancher.jpg",
     },
 ];
@@ -55,13 +55,13 @@ function displayProducts() {
     products.forEach(product => {
         const productDiv = document.createElement('div');
         productDiv.className = 'product';
-        productDiv.innerHTML = `
+        productDiv.innerHTML = 
             <img src="${product.image}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>${product.description}</p>
             <p>Prix: $${product.price}/jour</p>
             <button class="add-to-cart" data-id="${product.id}">Ajouter au panier</button>
-        `;
+        ;
         productList.appendChild(productDiv);
     });
 
@@ -80,7 +80,7 @@ function addToCart(productId) {
     if (product) {
         cart.push(product);
         updateCartCount();
-        alert(`${product.name} a été ajouté au panier.`);
+        alert(${product.name} a été ajouté au panier.);
     }
 }
 
@@ -100,7 +100,7 @@ function showCartDetails() {
 
     cart.forEach((item, index) => {
         const li = document.createElement('li');
-        li.textContent = `${item.name} - $${item.price}/jour`;
+        li.textContent = ${item.name} - $${item.price}/jour;
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Supprimer';
         removeButton.addEventListener('click', () => {
@@ -182,25 +182,42 @@ checkoutButton.addEventListener('click', handleCheckout);
 // Initialiser la page
 displayProducts();
 
-document.addEventListener("DOMContentLoaded", () => {
-    const cartButton = document.getElementById("cart-button");
-    const modalOverlay = document.getElementById("modal-overlay");
-    const closeModal = document.getElementById("close-modal");
+tu peut faire que s'affiche un peut comme une pop-up stp
 
-    // Affiche la modal quand on clique sur le bouton "Panier"
-    cartButton.addEventListener("click", () => {
-        modalOverlay.style.display = "flex";
-    });
 
-    // Ferme la modal quand on clique sur "Fermer"
-    closeModal.addEventListener("click", () => {
-        modalOverlay.style.display = "none";
-    });
+<div class="form-group">
+    <label for="rental-days">Nombre de jours :</label>
+    <input type="number" id="rental-days" min="1" value="1" class="form-input">
+</div>
 
-    // Ferme la modal si on clique en dehors de celle-ci
-    modalOverlay.addEventListener("click", (e) => {
-        if (e.target === modalOverlay) {
-            modalOverlay.style.display = "none";
-        }
-    });
-});
+<div class="form-group">
+    <label for="payment-method">Méthode de paiement :</label>
+    <select id="payment-method" class="form-input">
+        <option value="interac">Interac</option>
+        <option value="paypal">PayPal</option>
+        <option value="cash">Cash</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="email">Email :</label>
+    <input type="email" id="email" placeholder="Entrez votre email" required class="form-input">
+</div>
+
+<div class="form-group">
+    <label for="phone">Numéro de téléphone :</label>
+    <input type="tel" id="phone" placeholder="Entrez votre numéro de téléphone" required class="form-input">
+</div>
+
+<button id="checkout-button" class="btn-checkout">Louez Maintenant</button>
+
+
+    <!-- Modal d'affichage des détails du produit -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal">
+            <img src="" alt="Image du produit" id="modal-img">
+            <h2 id="modal-title">Nom du produit</h2>
+            <p id="modal-description">Description du produit...</p>
+            <button id="close-modal">Fermer</button>
+        </div>
+    </div>
